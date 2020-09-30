@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         for i in 0 ..< sectionNum{
-            sectionArray.append(SectionData.init(name: "Test Section \(i)", numOfItems: 2 + i))
+            sectionArray.append(SectionData.init(name: "Test Section \(i)", sectionNo: i, numOfItems: 2 + i))
         }
         
         self.theTableView.reloadData()
@@ -71,7 +71,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: TestTableViewCell.cellIdentifier(), for:indexPath)
      
         if let commonCell = cell as? TestTableViewCell{
-            commonCell.setup(name: "Test cell \(indexPath.section) \(indexPath.row)")
+            commonCell.setup(name: self.sectionArray[indexPath.section].itemNameArr[indexPath.row])
         }
         
       
@@ -129,7 +129,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.self.sectionArray[sourceIndexPath.section].itemNameArr[sourceIndexPath.row]
+        let movedObject = self.sectionArray[sourceIndexPath.section].itemNameArr[sourceIndexPath.row]
         self.sectionArray[sourceIndexPath.section].itemNameArr.remove(at: sourceIndexPath.row)
         self.sectionArray[destinationIndexPath.section].itemNameArr.insert(movedObject, at: destinationIndexPath.row)
     }
