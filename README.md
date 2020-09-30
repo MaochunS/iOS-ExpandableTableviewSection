@@ -2,5 +2,5 @@
 
 Expandable tableview section with reorderable cells.
 
-![Alt Text](demo.gif)
 
+<img src="demo.gif" width="360" height="640"/>
