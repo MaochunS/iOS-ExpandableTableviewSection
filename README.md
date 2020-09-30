@@ -2,4 +2,4 @@
 
 Expandable tableview section with reorderable cells.
 
-![](Demo.mp4)
+![](Demo.MP4)
